@@ -1,9 +1,28 @@
-# React + Vite
+# CODER HOUSE
+## Proyecto final React JS
+### Tienda online de indumentaria
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este es el resultado de todo el contenido aprendido durante el curso
+ conocimientos aplicados:
+  - Componentes
+  - Promesas
+  - Asincronia 
+  - MAP
+  - Hooks
+  - Patrones
+  - Children
+  - Routing y Navegación
+  - Contexto
+  - Tecnicas de Rendering
+  - Firebase
 
-Currently, two official plugins are available:
+  Tutor: Javier Verón
+  Tutor adjunto: Maximiliano Jose Tortosa
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+  Fecha de cursada: Del 10/06/24 al 31/07/24
+
+Redes sociales
+- [Linkdin](https://www.linkedin.com/in/jaekr84/)
+- [X](https://www.linkedin.com/in/jaekr84/)
+- [Instagram](https://www.linkedin.com/in/jaekr84/)
 # ReactJS-Jae
