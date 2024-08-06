@@ -15,8 +15,8 @@ const Checkout = () => {
     }
     
     const order = {
-      buyer:{name: nombre, phone: telefono, email: email},
-      items:cart.map(item => ({id: item.id, title: item.title, price: item.price})),
+      buyer:{name:nombre, phone:telefono, email:email},
+      items:cart.map(item => ({id:item.id, title:item.title, price:item.price})),
       total:sumProducts()
     }
     console.log(order);
@@ -47,12 +47,12 @@ const Checkout = () => {
             <input type="text" className="form-control" onInput={(e) => {setNombre(e.target.value)}}/>
           </div>
           <div className="mb-3">
-            <label htmlFor="email" className="form-label" onInput={(e) => {setEmail(e.target.value)}} >Email</label>
-            <input type="email" className="form-control"/>
+            <label htmlFor="email" className="form-label">Email</label>
+            <input type="email" className="form-control" onInput={(e) => {setEmail(e.target.value)}}/>
           </div>
           <div className="mb-3">
-            <label htmlFor="telefono" className="form-label" onInput={(e) => {setTelefono(e.target.value)}} >Teléfono</label>
-            <input type="number" className="form-control"/>
+            <label htmlFor="telefono" className="form-label">Teléfono</label>
+            <input type="number" className="form-control" onInput={(e) => {setEmail(e.target.value)}}/>
           </div>
           <button type="button" className="btn btn-warning" onClick={generarOrden} >Finalizar oden de compra</button>
         </form>
