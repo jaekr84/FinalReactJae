@@ -1,5 +1,7 @@
 import { useContext, useState } from "react"
 import { CartContext } from "./context/CartContext"
+import { addDoc, getFirestore, collection } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 const Checkout = () => {
 
@@ -7,6 +9,7 @@ const Checkout = () => {
   const [nombre, setNombre] = useState ("");
   const [email, setEmail] = useState ("");
   const [telefono, setTelefono] = useState ("");
+  const [orderId, setOrderId] = useState ("");
 
   const generarOrden =() => {
     if (nombre == "" || email == "" || telefono == "") {
@@ -19,7 +22,13 @@ const Checkout = () => {
       items:cart.map(item => ({id:item.id, title:item.title, price:item.price})),
       total:sumProducts()
     }
-    console.log(order);
+    
+    const db = getFirestore();
+    const orderCollection = collection(db, "orders")
+    addDoc(orderCollection, order).then((response) => {
+      setOrderId(response.id)
+    })
+
   }
 
 
@@ -44,15 +53,15 @@ const Checkout = () => {
         <form>
           <div className="mb-3">
             <label htmlFor="nombre" className="form-label">Nombre</label>
-            <input type="text" className="form-control" onInput={(e) => {setNombre(e.target.value)}}/>
+            <input type="text" className="form-control" id="nombre" value={nombre} onInput={(e) => {setNombre(e.target.value)}}/>
           </div>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">Email</label>
-            <input type="email" className="form-control" onInput={(e) => {setEmail(e.target.value)}}/>
+            <input type="email" className="form-control" id="email" value={email} onInput={(e) => {setEmail(e.target.value)}}/>
           </div>
           <div className="mb-3">
             <label htmlFor="telefono" className="form-label">Teléfono</label>
-            <input type="number" className="form-control" onInput={(e) => {setEmail(e.target.value)}}/>
+            <input type="number" className="form-control" id="telefono" value={telefono} onInput={(e) => {setTelefono(e.target.value)}}/>
           </div>
           <button type="button" className="btn btn-warning" onClick={generarOrden} >Finalizar oden de compra</button>
         </form>
@@ -76,6 +85,15 @@ const Checkout = () => {
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+    <div className="row my-5">
+      <div className="col text-center">
+        {orderId ? <div className="alert alert-light p-5" role="alert" >  
+          <h3>Gracias por tu compra</h3>
+          <p>Tu número de compra es: <b>{orderId}</b></p>
+        <Link to={'/'}><button className="btn btn-primary">Volver a la Pagina principal</button></Link>
+        </div> : "" }
       </div>
     </div>
   </div>
