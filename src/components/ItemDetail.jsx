@@ -14,7 +14,7 @@ const ItemDetail = ({item}) => {
       <div className="card m-3">
         <div className="row g-0">
           <div className="col-md-4">
-        <img src={item.image} className="img-fluid rounded-start" style={{objectFit: 'cover'}} alt={item.title}/>
+        <img src={item.image} width={200} className="img-fluid rounded-start objetct-fit-cover" style={{objectFit: 'cover'}} alt={item.title}/>
         </div>
         <div className="col-md-8">
           <div className="card-body d-flex flex-column justify-content-between h-50 ">
