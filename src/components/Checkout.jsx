@@ -17,9 +17,9 @@ const Checkout = () => {
 
   const generarOrden =() => {
     if (nombre == "" || email == "" || telefono == "") {
-      alert("Por favor completa todos los campos")
+      Swal.fire({title: "Es obligatorio completar todos los campos", icon:"warning"});
       return false;
-    }
+    } Swal.fire({title: "Orden generada exitozamente", icon:"success"});
     
     const fecha = new Date();
 
@@ -85,6 +85,8 @@ const Checkout = () => {
                 <input type="number" className="form-control" id="telefono" value={telefono} onInput={(e) => {setTelefono(e.target.value)}}/>
               </div>
               <button type="button" className="btn btn-warning" onClick={generarOrden} >Finalizar oden de compra</button>
+              
+
             </form>
           </div>
         
