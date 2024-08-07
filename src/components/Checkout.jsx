@@ -10,6 +10,10 @@ const Checkout = () => {
   const [email, setEmail] = useState ("");
   const [telefono, setTelefono] = useState ("");
   const [orderId, setOrderId] = useState ("");
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('es-AR', {style: 'currency', currency: 'ARG'}).format(price);
+  };
+
 
   const generarOrden =() => {
     if (nombre == "" || email == "" || telefono == "") {
@@ -92,13 +96,13 @@ const Checkout = () => {
                   <tr key={item.id}>
                     <td className='align-middle'> <img src={item.image} alt={item.title} width={60} /> </td>
                     <td className='align-middle'> {item.title} </td>
-                    <td className='align-middle'> $ {item.price} x {item.quantity} </td>
-                    <td className='align-middle'> $ {item.price * item.quantity} </td>  
+                    <td className='align-middle'> {formatPrice(item.price)} x {item.quantity} </td>
+                    <td className='align-middle'> {formatPrice(item.price * item.quantity)} </td>  
                   </tr>
                 ))}
                 <tr>
                   <td className='align-middle' colSpan={3}> <b> Total a Pagar </b></td>
-                  <td className='align-middle' >$ {sumProducts()}</td>
+                  <td className='align-middle' > {formatPrice(sumProducts())}</td>
                 </tr>
               </tbody>
             </table>

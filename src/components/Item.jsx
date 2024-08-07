@@ -2,6 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Item = ({item}) => {
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('es-AR', {style: 'currency', currency: 'ARG'}).format(price);
+  };
+
   return (
       <div className='col-md-3' >
         <div className='card border-1 m-1'>
@@ -10,7 +14,7 @@ const Item = ({item}) => {
           </Link>
           <div className='card-body'>
             <p className='card-text'>{item.title}</p>
-            <p className='card-text'>${item.price}</p>
+            <p className='card-text'>{formatPrice(item.price)}</p>
             <Link to={"/item/" + item.id}> <button className='btn btn-dark'>Ver detalle</button></Link>
           </div>
         </div>

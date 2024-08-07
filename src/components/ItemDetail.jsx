@@ -9,6 +9,10 @@ const ItemDetail = ({item}) => {
     addItem(item,quantity);
   }
 
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat('es-AR', {style: 'currency', currency: 'ARG'}).format(price);
+  };
+
   return (
     <>
       <div className="card m-3">
@@ -20,7 +24,7 @@ const ItemDetail = ({item}) => {
           <div className="card-body d-flex flex-column justify-content-between h-50 ">
             <h5 className="card-title">{item.title}</h5>
             <p className="card-text">{item.description}</p>
-            <p className="card-text">$ {item.price}</p>
+            <p className="card-text">{formatPrice(item.price)}</p>
             <p className="card-text"><small className="text-body-secondary">3 y 6 cuotas sin interes</small></p>
             <ItemCount stock={item.stock} onAdd={onAdd}/>
           </div>
